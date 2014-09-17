@@ -6,6 +6,8 @@
 //
 //  Lab Partners: Sean Slamka, Aydin Balci
 
+#include "support_common.h"
+
 static void count_up(int p_delay)
 {
 }
@@ -27,3 +29,5 @@ __declspec(noreturn) int main()
 static void run()
 {
 }
+
+
