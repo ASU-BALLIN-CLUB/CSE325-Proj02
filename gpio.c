@@ -71,6 +71,6 @@ void gpio_port_set_pin_state(gpio_port_t p_port, gpio_pin_t p_pin, gpio_pin_stat
 	{
 		GPIO_CLR(p_port) &= 0;
 	}
-}
+} 
 
 
