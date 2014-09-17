@@ -20,12 +20,29 @@ static uint32 const DTIM_BASE = 0x40000400;
 #define DTIM_DTRR(timer) *(volatile uint32 *) (DTIM_BASE + 0x04 + ((timer) << 6))
 #define DTIM_DTXMR(timer) *(volatile uint8 *) (DTIM_BASE + 0x02 + ((timer) << 6))
 
-void dtim_busy_delay_ms(dtim_t const p_timer, int const p_msecs)
+void dtim_busy_delay_ms(dtim_t const p_timer, uint32 const p_msecs)
 {
+	if(p_msecs < 4294968)
+	{
+		dtim_busy_delay_us(p_timer, p_msecs * 1000)
+	}
+
 }
-void dtim_busy_delay_us(dtim_t const p_timer, int const p_usecs)
+void dtim_busy_delay_us(dtim_t const p_timer, uint32 const p_usecs)
 {
+	DTIM_DTER(p_timer) = 0x03;
+	DTIM-DTCN(p_timer) = 0;
+	DTIM_DTRR(p_timer) = (uint32)(p_usecs - 1);
+	DTIM_DTMR(p_timer) |= 0x0001;
+	while(~DTIM_DTER(p_timer) & 0x02)
+	{
+	}
+
 }
 void dtim_init(dtim_t const p_timer)
 {
+	DTIM_DTMR(p_timer) |= 0x0001;
+	DTIM_DTMR(p_timer) &= ~(0x0001);
+	DTIM_DTMR(p_timer) = 0x4F02;
+	DTIM_DTXMR(p_timer) = 0x40;
 }
