@@ -54,11 +54,11 @@ static void gpio_port_set_data_dir(gpio_port_t p_port, gpio_pin_t p_pin, gpio_da
 {
 	if(p_data_dir == gpio_data_dir_in)
 	{
-		GPIO_DDR(p_port) &= 0;
+		GPIO_DDR(p_port) &= ~(0 << p_pin);
 	}
 	else if (p_data_dir == gpio_data_dir_out)
 	{
-		GPIO_DDR(p_port) |= 1;
+		GPIO_DDR(p_port) |= (1 << p_pin);
 	}
 }
 void gpio_port_set_pin_state(gpio_port_t p_port, gpio_pin_t p_pin, gpio_pin_state_t p_state)
@@ -71,6 +71,4 @@ void gpio_port_set_pin_state(gpio_port_t p_port, gpio_pin_t p_pin, gpio_pin_stat
 	{
 		GPIO_CLR(p_port) &= 0;
 	}
-} 
-
-
+}
