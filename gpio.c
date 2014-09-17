@@ -26,12 +26,12 @@ void gpio_port_init(gpio_port_t p_port, gpio_pin_t p_pin, gpio_funct_t p_funct, 
 	 switch (p_port)
 	 {
 	 	case gpio_port_dd:
-	 		GPIO_PAR(p-port) &= 0x0;
-	 		GPIO_PAR(p_port) |= 0x0;
+	 		GPIO_PAR(p-port) &= 0;
+	 		GPIO_PAR(p_port) |= gpio_funct_gpio;
 	 		break;
 	 	case gpio_port_tc:
-	 		GPIO_PAR(p_port) &= 0x0;
-	 		GPIO_PAR(p_port) |= 0x0;
+	 		GPIO_PAR(p_port) &= 0;
+	 		GPIO_PAR(p_port) |= gpio_funct_gpio;
 	 		break;
 	 	default:
 	 		break;
@@ -54,7 +54,7 @@ static void gpio_port_set_data_dir(gpio_port_t p_port, gpio_pin_t p_pin, gpio_da
 {
 	if(p_data_dir == gpio_data_dir_in)
 	{
-		GPIO_DDR(p_port) &= ~(0 << p_pin);
+		GPIO_DDR(p_port) &= ~(1 << p_pin);
 	}
 	else if (p_data_dir == gpio_data_dir_out)
 	{
