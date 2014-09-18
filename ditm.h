@@ -9,8 +9,8 @@
 #ifndef ____dtim__
 #define ____dtim__
 
-//#include <iostream>
-//#include "Token.h"
+#include "gpio.h"
+
 
 //Header file for gpio function
 class dtim
@@ -21,3 +21,7 @@ class dtim
 	 dtim_2 = 2, // DMA timer 2
 	 dtim_3 = 3 // DMA timer 3
 	} dtim_t ;
+
+};
+
+#endif /* defined(__gpio__) */
