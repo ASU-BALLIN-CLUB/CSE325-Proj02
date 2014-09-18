@@ -9,8 +9,7 @@
 #ifndef ____uc_dipsw__
 #define ____uc_dipsw__
 
-//#include <iostream>
-//#include "Token.h"
+#include "gpio.h"
 
 typedef enum {
  uc_dipsw_1 = 4, // Represents subswitch 1
@@ -22,3 +21,7 @@ typedef enum {
  uc_dipsw_state_off = 1, // Represents the Off state
  uc_dipsw_state_on = 0 // Represents the On state
 } uc_dipsw_state_t;
+
+};
+
+#endif /* defined(__gpio__) */
