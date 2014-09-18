@@ -37,7 +37,7 @@ void dtim_busy_delay_us(dtim_t const p_timer, uint32 const p_usecs)
 	while(~DTIM_DTER(p_timer) & 0x02)
 	{
 	}
-
+	
 }
 void dtim_init(dtim_t const p_timer)
 {
@@ -45,4 +45,6 @@ void dtim_init(dtim_t const p_timer)
 	DTIM_DTMR(p_timer) &= ~(0x0001);
 	DTIM_DTMR(p_timer) = 0x4F02;
 	DTIM_DTXMR(p_timer) = 0x40;
+	
+	
 }
