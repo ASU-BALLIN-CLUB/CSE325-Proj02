@@ -9,8 +9,8 @@
 #ifndef ____uc_led__
 #define ____uc_led__
 
-//#include <iostream>
-//#include "Token.h"
+#include "gpio.h"
+
 
 typedef enum {
  uc_led_1 = 1, // Represents LED1
@@ -18,3 +18,6 @@ typedef enum {
  uc_led_3 = 3, // Represents LED3
  uc_led_4 = 4 // Represents LED4
 } uc_led_t;
+};
+
+#endif /* defined(__uc_led__) */
