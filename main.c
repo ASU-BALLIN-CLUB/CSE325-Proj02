@@ -8,6 +8,8 @@
 
 #include "support_common.h"
 #include "gpio.h"
+#include "uc_dipsw.h"
+#include "uc_led.h"
 
 static void count_up(int p_delay)
 {
