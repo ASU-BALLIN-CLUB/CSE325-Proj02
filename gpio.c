@@ -36,10 +36,10 @@ void gpio_port_init(gpio_port_t p_port, gpio_pin_t p_pin, gpio_funct_t p_funct, 
 	 	default:
 	 		break;
 	}
-	if(p_funct == 0)
+	if(p_funct == gpio_funct_gpio)
 	{
 		gpio_port_set_data_dir(p_port, p_pin, p_data_dir)
-		if(p_data_dir == 1)
+		if(p_data_dir == gpio_data_dir_out)
 		{
 			gpio_port_set_pin_state(p_port,p_pin,p_state)
 		}
@@ -72,3 +72,5 @@ void gpio_port_set_pin_state(gpio_port_t p_port, gpio_pin_t p_pin, gpio_pin_stat
 		GPIO_CLR(p_port) &= 0;
 	}
 }
+
+
