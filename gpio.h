@@ -1,20 +1,18 @@
 //
 //  gpio.h
-//  
 //
-//  Created by Sean Slamka on 9/17/14.
-//
+//	Proj02
 //  Lab Partners: Sean Slamka, Aydin Balci
+//  Email: sslamka@asu.edu, abalci@asu.edu
+//  CSE325 Embedded Microprocessor Systems
+//  Fall 2014
+//
 
 #ifndef ____gpio__
 #define ____gpio__
-
-//#include <iostream>
-//#include "Token.h"
+#include "support_common.h"
 
 //Header file for gpio function
-class gpio
-{
 typedef enum {
  gpio_data_dir_in = 0, // Configure pin in a DDR reg to be an Input pin
  gpio_data_dir_out = 1, // Configure pin in a DDR reg to be an Output pin
@@ -51,6 +49,10 @@ typedef enum {
 } gpio_port_t;
 
 
-};
+void gpio_port_init(gpio_port_t p_port, gpio_pin_t p_pin, gpio_funct_t p_funct, gpio_data_dir_t p_data_dir, gpio_pin_state_t p_state);
+gpio_pin_state_t gpio_port_get_pin_state(gpio_port_t p_port, gpio_pin_t p_pin);
+static void gpio_port_set_data_dir(gpio_port_t p_port, gpio_pin_t p_pin, gpio_data_dir_t p_data_dir);
+void gpio_port_set_pin_state(gpio_port_t p_port, gpio_pin_t p_pin, gpio_pin_state_t p_state);
+
 
 #endif /* defined(__gpio__) */
